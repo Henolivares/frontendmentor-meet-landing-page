@@ -1,0 +1,10 @@
+.Nav {
+  display: grid;
+  place-content: center;
+
+  padding: 3rem 0 2.8125rem 0;
+
+  &-a {
+    max-width: 7.4375rem;
+  }
+}
