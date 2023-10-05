@@ -1,0 +1,33 @@
+@mixin typography($type: body) {
+  $fs: --fs-body;
+  $fw: --fw-body;
+  $lh: --lh-body;
+
+  @if $type == l {
+    $fs: --fs-heading-l;
+    $fw: --fw-heading;
+    $lh: --lh-heading-l;
+  } @else if $type == m {
+    $fs: --fs-heading-m;
+    $fw: --fw-heading;
+    $lh: --lh-heading-m;
+  } @else if $type == s {
+    $fs: --fs-heading-s;
+    $fw: --fw-heading;
+    $lh: --lh-heading-s;
+  } @else if $type == btn {
+    $fs: --fs-btn;
+    $fw: --fw-btn;
+    $lh: --lh-btn;
+  } @else if $type == body {
+    $fs: --fs-body;
+    $fw: --fw-body;
+    $lh: --lh-body;
+  } @else {
+    @error "Unknown direction #{$direction}.";
+  }
+
+  font-size: var($fs);
+  font-weight: var($fw);
+  line-height: var($lh);
+}

@@ -1,0 +1,154 @@
+@use '../mixins/breakpoints' as *;
+@use '../mixins/typography' as *;
+
+.Hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, auto);
+
+  overflow-x: clip;
+
+  --margin-bottom: 2.5625rem;
+
+  margin-bottom: var(--margin-bottom);
+
+  @include breakpoint(s) {
+    --margin-bottom: 5rem;
+  }
+
+  @include breakpoint(l) {
+    grid-template-columns: 1fr 33.75rem 1fr;
+    gap: 2.5rem;
+
+    --margin-bottom: 6.875rem;
+  }
+
+  &-bg {
+    overflow-x: clip;
+    &--left {
+      display: none;
+      background-image: none;
+    }
+
+    &--top {
+      background-image: url('../../assets/tablet/image-hero.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      width: 115%;
+      aspect-ratio: 820 / 303;
+      position: relative;
+      left: -7.5%;
+    }
+
+    &--right {
+      display: none;
+      background-image: none;
+    }
+
+    @include breakpoint(l) {
+      &--top {
+        display: none;
+        background-image: none;
+      }
+
+      &--left {
+        display: block;
+        background-image: url('../../assets/desktop/image-hero-left.png');
+        background-repeat: no-repeat;
+        background-position: center right;
+        background-size: cover;
+        max-width: 24.625rem;
+        aspect-ratio: 394 / 303;
+        justify-self: end;
+      }
+
+      &--right {
+        display: block;
+        background-image: url('../../assets/desktop/image-hero-right.png');
+        background-repeat: no-repeat;
+        background-position: center right;
+        background-size: cover;
+        max-width: 24.625rem;
+        aspect-ratio: 394 / 303;
+        justify-self: start;
+      }
+    }
+  }
+
+  &-content {
+    width: min(33.75rem, 90%);
+    margin: 0 auto;
+    text-align: center;
+
+    --margin-top: 3rem;
+    margin-top: var(--margin-top);
+
+    @include breakpoint(s) {
+      --margin-top: 4.5rem;
+    }
+
+    @include breakpoint(l) {
+      --margin-top: 3rem;
+    }
+  }
+
+  &-h1 {
+    @include typography(l);
+    color: var(--clr-text-heading);
+
+    --margin-top: 2.5rem;
+
+    margin-bottom: var(--margin-top);
+
+    @include breakpoint(l) {
+      --margin-top: 2.125rem;
+    }
+  }
+
+  &-p {
+    @include typography();
+    color: var(--clr-text-body);
+
+    margin-bottom: 2rem;
+  }
+
+  &-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.125rem;
+  }
+
+  &-btn {
+    @include typography(btn);
+    color: var(--clr-white);
+    border-radius: 1.8125rem;
+    justify-self: center;
+    cursor: pointer;
+
+    &--version {
+      color: var(--clr-primary-hover);
+    }
+  }
+
+  &-btn--primary {
+    padding: 1rem 2.5rem;
+    background-color: var(--clr-primary);
+
+    &:hover,
+    &:focus-visible {
+      background-color: hsl(192, 54%, 64%);
+    }
+  }
+
+  &-btn--secondary {
+    padding: 1rem 1.875rem;
+    background-color: var(--clr-secondary);
+
+    &:hover,
+    &:focus-visible {
+      background-color: hsl(268, 55%, 71%);
+    }
+  }
+}

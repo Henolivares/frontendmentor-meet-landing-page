@@ -1,8 +1,17 @@
+@use '../mixins/breakpoints' as *;
+@use '../mixins/typography' as *;
+
 .Nav {
   display: grid;
   place-content: center;
 
-  padding: 3rem 0 2.8125rem 0;
+  --margin-bottom: 3.375rem;
+
+  padding: 3rem 0 var(--margin-bottom) 0;
+
+  @include breakpoint(s) {
+    --margin-bottom: 4.0625rem;
+  }
 
   &-a {
     max-width: 7.4375rem;

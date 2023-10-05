@@ -1,0 +1,114 @@
+@use '../mixins/breakpoints' as *;
+@use '../mixins/typography' as *;
+
+.Footer {
+  position: relative;
+  --padding-top: 5.75rem;
+  --padding-bottom: 4.5rem;
+  padding-top: var(--padding-top);
+  padding-bottom: var(--padding-bottom);
+
+  margin-top: 11.25rem;
+
+  background-image: url('../../assets/mobile/image-footer.jpg');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+
+  @include breakpoint(m) {
+    background-image: url('../../assets/tablet/image-footer.jpg');
+  }
+
+  @include breakpoint(l) {
+    background-image: url('../../assets/desktop/image-footer.jpg');
+    --padding-top: 7.25rem;
+    --padding-bottom: 6.25rem;
+  }
+
+  &::after {
+    content: '';
+    inset: 0;
+    background-color: rgba(77, 150, 169, 0.85);
+    position: absolute;
+  }
+
+  &-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include typography(s);
+    color: var(--clr-text-body);
+    width: 3.5rem;
+    aspect-ratio: 1 / 1;
+    border: 1px solid hsla(240, 10%, 57%, 0.25);
+    border-radius: 100%;
+    background-color: var(--clr-white);
+
+    position: absolute;
+    left: calc(50% - (3.5rem / 2));
+    top: calc(-3.5rem / 2);
+    z-index: 2;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 1px;
+      height: 5.25rem;
+      background-color: hsla(240, 10%, 57%, 0.25);
+      bottom: 100%;
+    }
+  }
+
+  &-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+    justify-items: center;
+    gap: 1.5rem;
+
+    @include breakpoint(l) {
+      grid-template-columns: 1fr 1fr auto;
+      text-align: left;
+      gap: 6rem;
+    }
+  }
+
+  &-h2 {
+    @include typography(m);
+    color: var(--clr-white);
+
+    margin-bottom: 0.5rem;
+  }
+
+  &-p {
+    @include typography();
+    color: var(--clr-white);
+  }
+
+  &-btn {
+    @include typography(btn);
+    color: var(--clr-white);
+    border-radius: 1.8125rem;
+    justify-self: center;
+    cursor: pointer;
+
+    padding: 1rem 1.875rem;
+    background-color: var(--clr-secondary);
+
+    &--version {
+      color: hsl(268, 100%, 86%);
+    }
+
+    &:hover,
+    &:focus-visible {
+      background-color: hsl(268, 55%, 71%);
+    }
+
+    @include breakpoint(l) {
+      align-self: center;
+      justify-self: end;
+    }
+  }
+}

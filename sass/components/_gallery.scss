@@ -1,0 +1,68 @@
+@use '../mixins/breakpoints' as *;
+@use '../mixins/typography' as *;
+
+.Gallery {
+  --margin-bottom: 4rem;
+  margin-bottom: var(--margin-bottom);
+
+  @include breakpoint(s) {
+    --margin-bottom: 3rem;
+  }
+
+  @include breakpoint(s) {
+    --margin-bottom: 5rem;
+  }
+
+  &-subheading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 8.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  &-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include typography(s);
+    color: var(--clr-text-body);
+    width: 3.5rem;
+    aspect-ratio: 1 / 1;
+    border: 1px solid hsla(240, 10%, 57%, 0.25);
+    border-radius: 100%;
+
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 1px;
+      height: 5.25rem;
+      background-color: hsla(240, 10%, 57%, 0.25);
+      bottom: 100%;
+    }
+  }
+
+  &-ul {
+    display: grid;
+    gap: 1.5625rem;
+
+    grid-template-columns: repeat(2, minmax(min(100%, 9.4375rem), 1fr));
+    grid-template-rows: 1fr 1fr;
+
+    @include breakpoint(m) {
+      grid-template-columns: repeat(4, minmax(min(100%, 9.4375rem), 1fr));
+      grid-template-rows: 1fr;
+    }
+  }
+
+  &-li {
+    border-radius: 1.25rem;
+    overflow: hidden;
+  }
+
+  &-li:last-child {
+    align-self: ce;
+  }
+}
