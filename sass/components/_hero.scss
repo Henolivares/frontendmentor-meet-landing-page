@@ -31,7 +31,7 @@
     }
 
     &--top {
-      background-image: url('../../assets/tablet/image-hero.png');
+      background-image: url('../tablet/image-hero.png');
       background-repeat: no-repeat;
       background-position: center center;
       background-size: contain;
@@ -54,7 +54,7 @@
 
       &--left {
         display: block;
-        background-image: url('../../assets/desktop/image-hero-left.png');
+        background-image: url('../desktop/image-hero-left.png');
         background-repeat: no-repeat;
         background-position: center right;
         background-size: cover;
@@ -65,7 +65,7 @@
 
       &--right {
         display: block;
-        background-image: url('../../assets/desktop/image-hero-right.png');
+        background-image: url('../desktop/image-hero-right.png');
         background-repeat: no-repeat;
         background-position: center right;
         background-size: cover;

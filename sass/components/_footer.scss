@@ -10,17 +10,17 @@
 
   margin-top: 11.25rem;
 
-  background-image: url('../../assets/mobile/image-footer.jpg');
+  background-image: url('../mobile/image-footer.jpg');
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
 
   @include breakpoint(m) {
-    background-image: url('../../assets/tablet/image-footer.jpg');
+    background-image: url('../tablet/image-footer.jpg');
   }
 
   @include breakpoint(l) {
-    background-image: url('../../assets/desktop/image-footer.jpg');
+    background-image: url('../desktop/image-footer.jpg');
     --padding-top: 7.25rem;
     --padding-bottom: 6.25rem;
   }
